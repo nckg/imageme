@@ -1,4 +1,6 @@
 # Image Me
+![Travis CI](https://travis-ci.org/nckg/imageme.svg?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/nckg/imageme/v/stable.svg)](https://packagist.org/packages/nckg/imageme)
 
 ## Installation
 Simply add a dependency on `nckg/imageme` to your project's composer.json file if you use Composer to manage the dependencies of your project.
@@ -30,3 +32,7 @@ Route::get('/my_image_path/{modifiers}/{src}', function($modifiers, $src)
 ## Development
 
 Use terminal to go inside the `example` directory. Once inside the directory fire up the built-in web server with `php -S 0.0.0.0:1337`. Use your browser to navigate to `http::0.0.0.0:1337`.
+
+### License
+
+[MIT license](http://opensource.org/licenses/MIT)
