@@ -21,8 +21,16 @@ This is an example for Laravel.
 Route::get('/my_image_path/{modifiers}/{src}', function($modifiers, $src)
 {
     $directory = Config::get('upload.display_path');
-    $image = new \Nckg\ImageMe\ImageMe;
-    $image->make($directory, $src, $modifiers);
+    $imageMe = new \Nckg\ImageMe\ImageMe;
+    
+    // optional: save to the filesystem
+    $storage = new \Nckg\ImageMe\Storage\FileSystem($directory.DIRECTORY_SEPARATOR.$modifiers, $src);
+    $imageMe->addStorage($storage);
+
+    // resize
+    $image = $imageMe->make($directory, $src, $modifiers);
+    
+    // return image response
     return $image->response();
 })
     ->where('modifiers', '^((w|h)\d+(\-?))+$')
